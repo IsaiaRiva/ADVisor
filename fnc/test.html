@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ADVisor-test</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    <body>
+        <video id="player" width="800" controls muted preload="metadata">
+            <source src="media/test.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button id="framePrev"><|||</button>
+          <button id="frameTo">|||></button>
+        <div class="timeline">
+            <div class="sliders">
+                <input id="from" type="range" value="0" min="0" max="100"/>
+                <input id="to" type="range" value="100" min="0" max="100"/>
+            </div>
+            <div class="form">
+                <div class="form_control_container">
+                    <div class="form_control_container__time">Min</div>
+                    <input class="form_control_container__time__input" type="text" id="fromInput" value="0" min="0" max="100"/>
+                </div>
+                <div class="form_control_container">
+                    <div class="form_control_container__time">Max</div>
+                    <input class="form_control_container__time__input" type="text" id="toInput" value="100" min="0" max="100"/>
+                </div>
+            </div>
+            <div id="timeline" style="height:50px;border:1px solid #000; padding: 0 30px;">
+                <ul class="scalable" style="background-color: #ccc;margin:0;height:100%;list-style: none;padding-left: 0;position:relative;"></ul>
+            </div>
+        </div>
+        <script src="assets/js/vendor/VideoFrame.js"></script>
+        <script src="assets/js/consts.js"></script>
+        <script src="assets/js/configs.js"></script>
+        <script src="assets/js/inputs.js"></script>
+        <script src="assets/js/timeline.js"></script>
+        <script src="assets/js/init.js"></script>
+    </body>
+</html>

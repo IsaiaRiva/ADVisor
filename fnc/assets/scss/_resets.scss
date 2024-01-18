@@ -1,0 +1,11 @@
+/* RESETS */
+
+button {
+    background: transparent;
+    border: none;
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}

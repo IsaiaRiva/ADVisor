@@ -1,0 +1,157 @@
+[
+  {
+    "title": "(Sponsored) New York Islanders vs Nashville Predators",
+    "clips": [
+      {
+        "caption": "Original (2.6s) played in slow motion",
+        "key": "demo/slo-mo/C6750_2s.mp4",
+        "playbackRate": 0.1267487685
+      },
+      {
+        "caption": "8X Slow motion (20.3s) enhanced with FM",
+        "key": "demo/slo-mo/C6750_2s-SLO-MO.mp4"
+      }
+    ]
+  },
+  {
+    "title": "(Sponsored) New York Islanders vs Calgary Flames",
+    "clips": [
+      {
+        "caption": "Original (2s) [120fps] played in slow motion",
+        "key": "demo/slo-mo/NYI_VS_CAR_GAME3_2s.mp4",
+        "playbackRate": 0.1
+      },
+      {
+        "caption": "28X Slow motion (64s) enhanced with FM",
+        "key": "demo/slo-mo/NYI_VS_CAR_GAME3_2s-SLO-MO.mp4"
+      }
+    ]
+  },
+  {
+    "title": "(Sponsored) Supercross Pro Motocross: AUXSOPEN19 CLIP #01",
+    "clips": [
+      {
+        "caption": "Original (4.50s) played in slow motion",
+        "key": "demo/slo-mo/SuperCross01.mp4",
+        "playbackRate": 0.1511705686
+      },
+      {
+        "caption": "6X Slow motion (30s) enhanced with FM",
+        "key": "demo/slo-mo/SuperCross01-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "(Sponsored) Supercross Pro Motocross: AUXSOPEN19 CLIP #02",
+    "clips": [
+      {
+        "caption": "Original (3.60s) played in slow motion",
+        "key": "demo/slo-mo/SuperCross02.mp4",
+        "playbackRate": 0.1514726486
+      },
+      {
+        "caption": "6X Slow motion (24s) enhanced with FM",
+        "key": "demo/slo-mo/SuperCross02-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "(Sponsored) Supercross Pro Motocross: AUXSOPEN19 CLIP #03",
+    "clips": [
+      {
+        "caption": "Original (5.0s) played in slow motion",
+        "key": "demo/slo-mo/SuperCross03.mp4",
+        "playbackRate": 0.1510489495
+      },
+      {
+        "caption": "6X Slow motion (33s) enhanced with FM",
+        "key": "demo/slo-mo/SuperCross03-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "(Sponsored) Supercross Pro Motocross: AUXSOPEN19 CLIP #04",
+    "clips": [
+      {
+        "caption": "Original (3.3s) played in slow motion",
+        "key": "demo/slo-mo/SuperCross04.mp4",
+        "playbackRate": 0.151617876
+      },
+      {
+        "caption": "6X Slow motion (22s) enhanced with FM",
+        "key": "demo/slo-mo/SuperCross04-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "Westiepoo running (licensed from Adobe stock)",
+    "clips": [
+      {
+        "caption": "Original (4s) played in slow motion",
+        "key": "demo/slo-mo/CutieDogRunning.mp4",
+        "playbackRate": 0.15132026935007944
+      },
+      {
+        "caption": "6X Slow motion (26s) enhanced with FM",
+        "key": "demo/slo-mo/CutieDogRunning-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "Golden retriever tracing football (licensed from Adobe stock)",
+    "clips": [
+      {
+        "caption": "Original (4s) played in slow motion",
+        "key": "demo/slo-mo/GoldenRetriever.mp4",
+        "playbackRate": 0.15132026935007944
+      },
+      {
+        "caption": "6X Slow motion (26s) enhanced with FM",
+        "key": "demo/slo-mo/GoldenRetriever-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "Soccer goal moment (licensed from Adobe stock)",
+    "clips": [
+      {
+        "caption": "Original (4s) played in slow motion",
+        "key": "demo/slo-mo/Soccer01.mp4",
+        "playbackRate": 0.30204636411689195
+      },
+      {
+        "caption": "3X Slow motion (13s) enhanced with FM",
+        "key": "demo/slo-mo/Soccer01-SLO-MO-02.mp4"
+      }
+    ]
+  },
+  {
+    "title": "Soccer trick move (licensed from Adobe stock)",
+    "clips": [
+      {
+        "caption": "Original (3s) played in slow motion",
+        "key": "demo/slo-mo/Soccer02.mp4",
+        "playbackRate": 0.30303030303030304
+      },
+      {
+        "caption": "3X Slow motion (10s) enhanced with FM",
+        "key": "demo/slo-mo/Soccer02-SLO-MO-02.mp4"
+      }
+    ]
+  },
+
+  {
+    "title": "Soccer trick move (licensed from Adobe stock)",
+    "clips": [
+      {
+        "caption": "Original (3s) played in slow motion",
+        "key": "demo/slo-mo/Soccer02.mp4",
+        "playbackRate": 0.30303030303030304
+      },
+      {
+        "caption": "3X Slow motion (10s) enhanced with FM",
+        "key": "demo/slo-mo/Soccer02-SLO-MO-02.mp4"
+      }
+    ]
+  }
+]

@@ -1,0 +1,224 @@
+/* GRID */
+
+// TODO start to mixinize here below
+
+.container,
+.container-fluid,
+.container-full,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto; }
+
+@media (min-width: 576px) { // TODO pass sizes
+  .container, .container-sm {
+    max-width: 540px; } } // TODO pass sizes
+
+@media (min-width: 768px) { // TODO pass sizes
+  .container, .container-sm, .container-md {
+    max-width: 720px; } } // TODO pass sizes
+
+@media (min-width: 992px) { // TODO pass sizes
+  .container, .container-sm, .container-md, .container-lg {
+    max-width: 960px; } } // TODO pass sizes
+
+@media (min-width: 1200px) { // TODO pass sizes
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1140px; } } // TODO pass sizes
+
+@media (min-width: 1440px) { // TODO pass sizes
+    .container, .container-sm, .container-md, .container-lg, .container-xxl {
+        max-width: 1400px; } } // TODO pass sizes
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+
+.container-full {
+    padding-right: 0;
+    padding-left: 0;
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+// set defaults
+$ib-columns: 12 !default;
+$ib-gutter: 1rem !default;
+
+$ib-class-row: 'row' !default;
+$ib-class-col: 'col' !default;
+$ib-class-off: 'off' !default;
+
+// breakpoints
+//TODO uniform with container breakpoints
+$ib-breakpoints: (
+    (xs),//size null here it's ok for all devices under sm breakpoint
+    (sm, 768px), // TODO pass sizes
+    (md, 992px), // TODO pass sizes
+    (lg, 1280px), // TODO pass sizes
+    (xl, 1440px) // TODO pass sizes
+) !default;
+
+// getting column sizing
+@function col-sizing($columns) {
+    @return $columns / $ib-columns * 100%;
+}
+
+// create spacing
+@mixin spacing($gutter, $type: margin, $orientation: vertical) {
+    @if $orientation==vertical {
+        #{ $type }-top: $gutter;
+        #{ $type }-bottom: $gutter;
+    }
+
+    @else {
+        #{ $type }-left: $gutter;
+        #{ $type }-right: $gutter;
+    }
+}
+
+// adding rules
+.#{ $ib-class-row } {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include spacing((-$ib-gutter), margin, horizontal);
+}
+
+.#{ $ib-class-col } {
+    position: relative;
+    width: 100%;
+    @include spacing(($ib-gutter), padding, horizontal);
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+%#{ $ib-class-col } {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    min-height: 1px;
+    @include spacing(($ib-gutter), padding, horizontal);
+}
+
+%#{ $ib-class-col }-flex {
+    @extend %#{ $ib-class-col };
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+// generate grid and sizing
+@mixin ib-base($breakpoint) {
+
+    //add start
+    .#{ $ib-class-col } {
+        @extend %#{ $ib-class-col }-flex;
+    }
+    //add end
+   
+    .#{ $ib-class-col }-#{$breakpoint} {
+        @extend %#{ $ib-class-col }-flex;
+    }
+
+    //add start
+    @for $i from 1 through $ib-columns {
+        .#{ $ib-class-col }-#{$i} {
+            @extend %#{ $ib-class-col };
+        }
+    }
+    //add end
+    
+    @for $i from 1 through $ib-columns {
+        .#{ $ib-class-col }-#{$breakpoint}-#{$i} {
+            @extend %#{ $ib-class-col };
+        }
+    }
+}
+
+@mixin ib-sizes($breakpoint) {
+    //add start
+    @for $i from 1 through $ib-columns {
+        .#{ $ib-class-col }-#{$i} {
+            flex-basis: col-sizing($i);
+            max-width: col-sizing($i);
+        }
+    }
+    //add end
+
+    @for $i from 1 through $ib-columns {
+        .#{ $ib-class-col }-#{$breakpoint}-#{$i} {
+            flex-basis: col-sizing($i);
+            max-width: col-sizing($i);
+        }
+    }
+
+    //add start
+    @for $i from 1 through $ib-columns {
+        @if ($i !=$ib-columns) {
+            .#{ $ib-class-off }-#{$i} {
+                margin-left: col-sizing($i);
+            }
+        }
+    }
+    //add end
+
+    @for $i from 1 through $ib-columns {
+        @if ($i !=$ib-columns) {
+            .#{ $ib-class-off }-#{$breakpoint}-#{$i} {
+                margin-left: col-sizing($i);
+            }
+        }
+    }
+
+    .#{ $ib-class-off }-reset {
+        margin-left: 0;
+    }
+
+    .#{ $ib-class-off }-#{$breakpoint}-reset {
+        margin-left: 0;
+    }
+}
+
+
+// grid building
+@each $item in $ib-breakpoints {
+
+    $breakpoint: nth($item, 1);
+    @include ib-base($breakpoint);
+
+}
+
+@each $item in $ib-breakpoints {
+    @if length($item)==1 {
+        $breakpoint: nth($item, 1);
+        @include ib-sizes($breakpoint);
+    }
+
+    @else {
+
+        $breakpoint: nth($item, 1);
+        $size: nth($item, 2);
+
+        @media only screen and (min-width: #{$size}) {
+            @include ib-sizes($breakpoint);
+        }
+    }
+}
+
+

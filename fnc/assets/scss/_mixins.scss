@@ -1,0 +1,70 @@
+/* RADIUS */
+@mixin radius($size) {
+    -webkit-border-radius: $size !important;
+    -moz-border-radius: $size !important;
+    border-radius: $size !important;
+}
+
+@mixin odd-radius($size) {
+    -webkit-border-radius: $size 0 $size 0;
+    -moz-border-radius: $size 0 $size 0;
+    border-radius: $size 0 $size 0;
+}
+
+@mixin start-radius($size) {
+    -webkit-border-top-left-radius: $size;
+    -moz-border-top-left-radius: $size;
+    border-top-left-radius: $size;
+}
+
+@mixin end-radius($size) {
+    -webkit-border-bottom-right-radius:$size;
+    -moz-border-bottom-right-radius:$size;
+    border-bottom-right-radius:$size;
+}
+
+@mixin top-radius($size) {
+    -webkit-border-radius: $size $size 0 0;
+    -moz-border-radius: $size $size 0 0;
+    border-radius: $size $size 0 0;
+}
+
+@mixin bottom-radius($size) {
+    -webkit-border-radius: 0 0 $size $size;
+    -moz-border-radius: 0 0 $size $size;
+    border-radius: 0 0 $size $size;
+}
+
+@mixin left-radius($size) {
+    -webkit-border-radius: $size 0 0 $size;
+    -moz-border-radius: $size 0 0 $size;
+    border-radius: $size 0 0 $size;
+}
+
+@mixin right-radius($size) {
+    -webkit-border-radius: 0 $size $size 0;
+    -moz-border-radius: 0 $size $size 0;
+    border-radius: 0 $size $size 0;
+}
+
+/* BLUR */
+
+@mixin blur($radius) {
+    filter: blur($radius);
+    -webkit-filter: blur($radius);
+}
+
+
+/*
+make functions file
+
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+
+div {
+    width: toRem(400);
+    height: toRem(400);
+}
+*/

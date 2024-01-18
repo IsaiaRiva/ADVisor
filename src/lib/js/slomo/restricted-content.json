@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Transformers: Bumblebee transformation",
+    "clips": [
+      {
+        "caption": "Original (7s) played in slow motion",
+        "key": "demo/slo-mo/BumblebeeTransformations7sec.mp4",
+        "playbackRate": 0.16
+      },
+      {
+        "caption": "6X Slow motion (44s) enhanced with FM",
+        "key": "demo/slo-mo/BumblebeeTransformations7sec-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "MotoGP X Goodwood Festival of Speed: Best save",
+    "clips": [
+      {
+        "caption": "Original (3s) played in slow motion",
+        "key": "demo/slo-mo/MotoGP_3sec.mp4",
+        "playbackRate": 0.15169932416006224
+      },
+      {
+        "caption": "6X Slow motion (20s) enhanced with FM",
+        "key": "demo/slo-mo/MotoGP_3sec-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "MotoGP X Goodwood Festival of Speed: Best save 2",
+    "clips": [
+      {
+        "caption": "Original (3s) played in slow motion",
+        "key": "demo/slo-mo/MotoGP_3sec_2.mp4",
+        "playbackRate": 0.15165876777251186
+      },
+      {
+        "caption": "6X Slow motion (20s) enhanced with FM",
+        "key": "demo/slo-mo/MotoGP_3sec_2-SLO-MO-03.mp4"
+      }
+    ]
+  },
+  {
+    "title": "FIFA World Cup QATAR: Brazil vs Serbia best goal",
+    "clips": [
+      {
+        "caption": "Original (3s) played in slow motion",
+        "key": "demo/slo-mo/BestGoal.mp4",
+        "playbackRate": 0.33
+      },
+      {
+        "caption": "3X Slow motion (10s) enhanced with FM",
+        "key": "demo/slo-mo/BestGoal-SLO-MO-02.mp4"
+      }
+    ]
+  },
+  {
+    "title": "NBA: Stephen Curry best move (2015)",
+    "clips": [
+      {
+        "caption": "Original (4s) played in slow motion",
+        "key": "demo/slo-mo/StephenCurryBestMove3sec.mp4",
+        "playbackRate": 0.25
+      },
+      {
+        "caption": "4X Slow motion (16s) enhanced with FM",
+        "key": "demo/slo-mo/StephenCurryBestMove-SLO-MO-02.mp4"
+      }
+    ]
+  },
+  {
+    "title": "Figure Skating: Best spin (2019)",
+    "clips": [
+      {
+        "caption": "Original (8s) played in slow motion",
+        "key": "demo/slo-mo/BestSpins.mp4",
+        "playbackRate": 0.5
+      },
+      {
+        "caption": "2X Slow motion (16s) enhanced with FM",
+        "key": "demo/slo-mo/BestSpins-SLO-MO-02.mp4"
+      }
+    ]
+  }
+]
