@@ -72,7 +72,7 @@ $ib-breakpoints: (
 
 // getting column sizing
 @function col-sizing($columns) {
-    @return $columns / $ib-columns * 100%;
+    @return calc($columns / $ib-columns * 100%);
 }
 
 // create spacing

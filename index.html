@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>ADVisor</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- bootstrap CSS -->
-        <link rel="stylesheet" href="third_party/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"> <!-- %SRI% -->
-        <!-- fontawesome -->
-        <link rel="stylesheet" href="third_party/dist/css/solid.min.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a"> <!-- %SRI% -->
-        <link rel="stylesheet" href="third_party/dist/css/regular.min.css" integrity="sha384-rbtXN6sVGIr49U/9DEVUaY55JgfUhjDiDo3EC0wYxfjknaJamv0+cF3XvyaovFbC"> <!-- %SRI% -->
-        <link rel="stylesheet" href="third_party/dist/css/fontawesome.min.css" integrity="sha384-syoT0d9IcMjfxtHzbJUlNIuL19vD9XQAdOzftC+llPALVSZdxUpVXE0niLOiw/mn"> <!-- %SRI% -->
-        <!-- cropper -->
-        <link rel="stylesheet" href="third_party/dist/css/cropper.min.css" integrity="sha384-oMy41mb/qJnpJlpXOF57hSu2KGi47l/UV9+tPNrBOs7/ap5Vubj/3phrCtjutHMQ"> <!-- %SRI% -->
-        <!-- videojs -->
-        <link rel="stylesheet" href="third_party/dist/css/video-js.min.css" integrity="sha384-rJdeIq+yGjo4ePy/Dog4rMs9LQTqvsXqrp/WefvZFWARKUZoGEsUVL80LST7ciLO"> <!-- %SRI% -->
-        <link rel="stylesheet" href="third_party/dist/css/videojs.ads.css" integrity="sha384-2n84EgdrdTwDqxu0UPxV7+aFTzn/LtsxjEbXi16GYUafMaiWRmDSzQqZZl2IkgLk"> <!-- %SRI% -->
-        <link rel="stylesheet" href="third_party/dist/css/videojs-overlay.css" integrity="sha384-9unCApUu27xuQqc5cXb80/kX8L4q92hrP52Ns5gY1AHweC3BmxtIb7zdWs9ighTH"> <!-- %SRI% -->
-        <link rel="stylesheet" href="css/videojs-markers.css" integrity="sha384-FvohpbwnALDf/vrksRkHsNiLJwWojw927xB6z/DizpOr3lMadWlJOIZBflyJC/uP"> <!-- %SRI% -->
-        <!-- app -->
-        <link rel="stylesheet" href="css/app.css" integrity="sha384-idOQ8VxbCwqm8Zx0vawGoGcouzgTwWm3n0JMXpqYm5k9SK2PyG8ly4xPdubk0U0W"> <!-- %SRI% -->
-    </head>
-    <body id="demo-app">
-        <script src="third_party/dist/js/jquery.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/crypto-js.min.js" integrity="sha384-1E1MXVfbpxFb7Vz6uwdOXPyIb05dIOjRLear/Fs5Uzi/40TN59EpxtlIhbCWzSDt"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/mime.min.js" integrity="sha384-2+Ud3JPh3vUqSS/GS4xPMhH37wBupWK0L698MWWpY0kOKDQQQdWu5dmxhjx1MYoB"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/cropper.min.js" integrity="sha384-r+ljwOAhwY4/kdyzMnuBg7MEVoWpTMp5EYUDntB/E9qzNwL9dAEcNrb2XaV+mJc2"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/video.js" integrity="sha384-xOapVKf0v5CoOk/hvZ+tHVNIqWcwtrCouwlUHwJMGHO2qJrUBfS1CoTpZ9mF0E/a"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/videojs.ads.js" integrity="sha384-3mnoK0Y/8dFd5vsFBCAWKd816D+Bg26EIit/Nz7CmugEcwa70frq2UNqOnjf9eC9"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/videojs-overlay.min.js" integrity="sha384-6QXTSblJFi0jWwpZrdUO+UYRrGaUgLYZbH4PEf6cWxcYFM8KKFENHkXvuKDfjyG9"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/videojs-markers.min.js" integrity="sha384-8aLRnBwsVQ5t9K5x0aw4OMk3L7y+mW4yd26GaVrBqfhkSn7OHjbXUBzu4Gaa/tZz"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/spark-md5.min.js" integrity="sha384-WAahC3S+69Co45zyyuhCjvdMwo7a42Yn0mM0IgZIUlYNebG24AVkPUltj3BQnM85"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/echarts.min.js" integrity="sha384-1QdOgc76cOup5WFqv3RqSl9JtJxAQ7uUhGAlHv+PeXws+kNrkSrtOJ/pBGrYE98c"></script> <!-- %SRI% -->
-        <script src="third_party/dist/js/aws-sdk-js-v3.min.js" integrity="sha384-ONHPnZHhEidooCpudiA+Ho0qM0bQqg4tNb4orz/AkB1gPYvmKaQ7AVLyIAlwkOAV"></script> <!-- %SRI% -->
-        <!--script src="app.min.js" type="module" integrity="sha384-+QKl1TJdJkqYLvHoRRIfOZ8FzT6K0mpBpgvLOVF+EXSTN8z2uG3chqcMkKhRcmiZ"></script-->
-    </body>
+
+<head>
+    <title>ADVisor</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="third_party/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="third_party/dist/css/solid.min.css">
+    <link rel="stylesheet" href="third_party/dist/css/regular.min.css">
+
+    <link rel="stylesheet" href="third_party/dist/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="third_party/dist/css/cropper.min.css">
+
+    <link rel="stylesheet" href="third_party/dist/css/video-js.min.css">
+
+    <link rel="stylesheet" href="third_party/dist/css/videojs.ads.css">
+
+    <link rel="stylesheet" href="third_party/dist/css/videojs-overlay.css">
+
+    <link rel="stylesheet" href="css/videojs-markers.css">
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body id="demo-app">
+    <script src="third_party/dist/js/jquery.slim.min.js"></script>
+    <script src="third_party/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="third_party/dist/js/crypto-js.min.js"></script>
+    <script src="third_party/dist/js/mime.min.js"></script>
+    <script src="third_party/dist/js/cropper.min.js"></script>
+    <script src="third_party/dist/js/video.js"></script>
+    <script src="third_party/dist/js/videojs.ads.js"></script>
+    <script src="third_party/dist/js/videojs-overlay.min.js"></script>
+    <script src="third_party/dist/js/videojs-markers.min.js"></script>
+    <script src="third_party/dist/js/spark-md5.min.js"></script>
+    <script src="third_party/dist/js/echarts.min.js"></script>
+    <script src="third_party/dist/js/aws-sdk-js-v3.min.js"></script>
+    <!--script src="app.min.js" type="module" integrity="sha384-+QKl1TJdJkqYLvHoRRIfOZ8FzT6K0mpBpgvLOVF+EXSTN8z2uG3chqcMkKhRcmiZ"></script-->
+</body>
+
 </html>
