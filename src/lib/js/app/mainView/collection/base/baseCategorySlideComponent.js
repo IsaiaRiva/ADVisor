@@ -227,7 +227,7 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
     container.ready(async () => {
       try {
         this.loading();
-
+        console.log('AMZN baseCategorySlideComponent.js row 230')
         await this.mediaManager.scanRecordsByCategory(this.mediaType);
         await this.refreshContent();
       } catch (e) {
@@ -282,6 +282,8 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
   }
 
   async refreshContent(uuid) {
+
+    console.log('AMZN baseCategorySlideComponent.js row 286', uuid)
     try {
       this.loading();
 
@@ -313,6 +315,8 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
         mediaListItems = await Promise.all(medias
           .map((media) =>
             this.createMediaListItem(media, list)));
+
+        console.log('AMZN baseCategorySlideComponent.js row 317', medias)
         this.showNoMediaMessage(false);
       } else {
         this.showNoMediaMessage(true);
@@ -366,7 +370,7 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
       'data:image/svg+xml;charset=UTF-8',
       encodeURIComponent(svg),
     ].join(',');
-
+    
     const container = $('<div/>')
       .addClass('col-3')
       .attr(DATA_UUID, ROLE_LOADMORE);
@@ -539,6 +543,8 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
   }
 
   async scanNextByMediaType() {
+
+    console.log('AMZN baseCategorySlideComponent.js row 543', records)
     try {
       this.loading();
 

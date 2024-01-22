@@ -1,4 +1,29 @@
-const init = {
+import Consts from './consts.js';
+
+import Auth from './auth/index.js'
+import Ui from './ui/index.js';
+
+const Init = {
+    auth: {
+        connect: async () => {
+            console.log('FSLOG selector', )
+            const container = document.querySelector(Consts.selectors.main);
+
+            await Auth.render(container);
+            
+            console.log('FSLOG selector END AWAIT', )
+	
+            
+                    
+                    /* const mainView = new MainView();
+                    mainView.appendTo(view);
+
+                    const hashtag = document.location.hash.slice(1);
+                    mainView.show(hashtag); */
+                
+            
+        }
+    },
     video: { 
         preload: async () => {
             const Video = document.querySelector('#player');
@@ -27,4 +52,5 @@ const init = {
     }
 }
 
-document.addEventListener('DOMContentLoaded', init.video.preload);
+export default Init;
+//document.addEventListener('DOMContentLoaded', init.video.preload);

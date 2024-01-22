@@ -1,103 +1,108 @@
 import "../scss/app.scss";
 
+import Init from "./init.js";
+import Consts from './consts.js';
+
+
 import AppUtils from '../../../src/lib/js/app/shared/appUtils.js';
 import {
-  GetLocalStoreDB,
+	GetLocalStoreDB,
 } from '../../../src/lib/js/app/shared/localCache/index.js';
 import MainView from '../../../src/lib/js/app/mainView.js';
-import {
-  SignInFlow,
-  ON_SIGNIN_VIEW_HIDDEN,
-} from '../../../src/lib/js/app/signInFlow.js';
+
+
 
 const ID_DEMOAPP = '#demo-app';
 
 export default class DemoApp {
-  constructor() {
-    this.$ids = {
-      container: `app-${AppUtils.randomHexstring()}`,
-    };
+	constructor() {
+		this.$ids = {
+			container: `app-${AppUtils.randomHexstring()}`,
+		};
 
-    const view = $('<div/>')
-      .attr('id', this.ids.container);
+		const view = `<div id="${this.ids.container}"></div>`;
 
-    const signIn = new SignInFlow();
-    signIn.appendTo(view);
+		const viewa = $('<div/>')
+			.attr('id', this.ids.container);
 
-    signIn.view.on(ON_SIGNIN_VIEW_HIDDEN, () =>
-      setTimeout(async () => {
-        const mainView = new MainView();
-        mainView.appendTo(view);
+		
+	
+		
+	}
 
-        const hashtag = document.location.hash.slice(1);
-        mainView.show(hashtag);
-      }, 10));
-    this.$signInFlow = signIn;
-    this.$view = view;
-  }
+	get ids() {
+		return this.$ids;
+	}
 
-  get ids() {
-    return this.$ids;
-  }
 
-  get view() {
-    return this.$view;
-  }
+	
 
-  get signInFlow() {
-    return this.$signInFlow;
-  }
+	appendTo(parent) {
+		parent[0].innerHTML = this.view;
+	}
 
-  appendTo(parent) {
-    parent.append(this.view);
-  }
+	async show() {
+		this.hide();
+		await this.openIndexedDB();/* 
+		console.log('FSLOG app show', this.signInFlow)
+		return this.signInFlow.show(); */
+	}
 
-  async show() {
-    this.hide();
-    await this.openIndexedDB();
-    return this.signInFlow.show();
-  }
+	async hide() {
+		return this.closeIndexedDB();
+	}
 
-  async hide() {
-    return this.closeIndexedDB();
-  }
+	async openIndexedDB() {
+		const db = GetLocalStoreDB();
+		console.log('FSLOG', db)
+		return db.open()
+			.catch((e) =>
+				console.error(e));
+	}
 
-  async openIndexedDB() {
-    const db = GetLocalStoreDB();
+	async closeIndexedDB() {
+		const db = GetLocalStoreDB();
 
-    return db.open()
-      .catch((e) =>
-        console.error(e));
-  }
-
-  async closeIndexedDB() {
-    const db = GetLocalStoreDB();
-
-    return db.close()
-      .catch((e) =>
-        console.error(e));
-  }
+		return db.close()
+			.catch((e) =>
+				console.error(e));
+	}
 }
+document.addEventListener('DOMContentLoaded', async () => {
 
-$(document).ready(async () => {
-  const demoApp = new DemoApp();
-  demoApp.appendTo($(ID_DEMOAPP));
-  await demoApp.show();
+	
+	Init.auth.connect();
 
-  $(window).on('unload', async () => {
-    console.log(
-      'unload',
-      'demoApp.hide'
-    );
-    await demoApp.hide();
-  });
+	window.onpopstate = (event) => {
+		console.log(
+			'FSLOG popstate',
+			'popstate',
+			'hash',
+			event.currentTarget.location.hash
+		);
+		location.reload();
+	  };
 
-  $(window).on('popstate', async (e) => {
-    console.log(
-      'popstate',
-      'hash',
-      e.currentTarget.location.hash
-    );
-    location.reload();
-  });
+	/* const demoApp = new DemoApp();
+	console.log('FSLOG doc ready', ID_DEMOAPP, demoApp)
+	//demoApp.appendTo(document.querySelector(ID_DEMOAPP));
+	document.querySelector(ID_DEMOAPP).innerHTML = demoApp.$view;
+	await demoApp.show(demoApp.$ids);
+
+	window.addEventListener('unload', async () => {
+		console.log(
+			'unload',
+			'demoApp.hide'
+		);
+		await demoApp.hide();
+	}); */
+
+	/* $(window).on('popstate', async (e) => {
+		console.log(
+			'popstate',
+			'hash',
+			e.currentTarget.location.hash
+		);
+		location.reload();
+	}); */
 });

@@ -75,7 +75,6 @@ function parseHashtag(hashtag = '') {
   if (tag[0] === '#') {
     tag = tag.slice(1);
   }
-
   const components = tag.split('/');
   const current = components[0];
   const next = components.slice(1).join('/');

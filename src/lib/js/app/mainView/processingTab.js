@@ -244,7 +244,7 @@ export default class ProcessingTab extends BaseTab {
       Spinner.loading();
 
       let medias = await this.mediaManager.scanProcessingRecords();
-
+      console.log('AMZ processingTabs.js row 247', medias)
       if (forceRefresh) {
         medias = this.mediaManager.findProcessingMedias();
         list.children().remove();

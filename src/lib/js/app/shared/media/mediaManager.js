@@ -43,6 +43,7 @@ let _singleton;
 const _receivers = {};
 
 const _onMediaEvent = (event, media) => {
+
   setTimeout(async () => {
     const names = Object.keys(_receivers);
     try {
@@ -86,6 +87,7 @@ class MediaManager {
         },
       }), {});
 
+      console.log('AMZN mediaManager.js row 90', this.$collection)
     this.$overallStatusNextTokens = [
       STATUS_PROCESSING,
       STATUS_COMPLETED,
@@ -162,6 +164,7 @@ class MediaManager {
   }
 
   async scanRecordsByCategory(type) {
+
     try {
       if (this.noMoreData(type)) {
         return undefined;
@@ -179,7 +182,7 @@ class MediaManager {
 
       const response = await ApiHelper.scanRecords(query);
       this.setNextTokenByType(type, response.NextToken);
-
+      console.log('AMZ mediaMananager.js row 184', response)
       const medias = await this.batchInsertMedia(response.Items);
       this.addMediaToCollection(medias);
 
@@ -191,9 +194,11 @@ class MediaManager {
   }
 
   async scanRecords() {
+    console.log('AMZ mediaManager.js row 196')
     let records = await Promise.all(MEDIATYPES
       .map((type) =>
         this.scanRecordsByCategory(type)));
+        
     records = records.flat(1);
     return records;
   }
@@ -356,6 +361,7 @@ class MediaManager {
   }
 
   findMediaByType(type) {
+
     return (this.collection[type] || {}).items || [];
   }
 
