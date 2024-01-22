@@ -342,6 +342,11 @@ export default class BaseCategorySlideComponent extends BaseSlideComponent {
 
     item.on('click', async (event) => {
       event.preventDefault();
+
+    console.log('AMZN baseCategorySlideComponent.js row 346', this.slide) //container div
+    console.log('AMZN baseCategorySlideComponent.js row 346', media)
+
+    console.log('AMZN baseCategorySlideComponent.js row 346', BaseCategorySlideComponent.Events.Media.Selected)
       return this.slide.trigger(BaseCategorySlideComponent.Events.Media.Selected, [media]);
     });
 

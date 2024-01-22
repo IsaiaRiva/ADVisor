@@ -24,18 +24,12 @@ export default class DemoApp {
 
 		const viewa = $('<div/>')
 			.attr('id', this.ids.container);
-
-		
-	
 		
 	}
 
 	get ids() {
 		return this.$ids;
 	}
-
-
-	
 
 	appendTo(parent) {
 		parent[0].innerHTML = this.view;

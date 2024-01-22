@@ -81,6 +81,7 @@ export default class MediaFactory {
   }
 
   static async createPreviewComponent(media, optionalSearchResults) {
+    console.log('AMZN mediaFactory.js row 84', media, optionalSearchResults)
     await media.getAnalysisResults();
     return media.type === MediaTypes.Video
       ? new VideoPreview(media, optionalSearchResults)

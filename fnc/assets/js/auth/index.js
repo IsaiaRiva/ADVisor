@@ -157,7 +157,7 @@ const Auth = {
                             const modal = document.querySelector(`div#${ID_MODAL}`);
 
                             modal.style.display = 'none';
-                            //TODO need to render newly list
+                            
                             Ui.render(container);
                         }, 10);
 

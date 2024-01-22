@@ -11,6 +11,8 @@ import {
     ON_MEDIA_ERROR,
   } from '../../../../src/lib/js/app/shared/media/mediaManager.js';
 import BaseMedia from "../../../../src/lib/js/app/shared/media/baseMedia.js";
+import MediaFactory from "../../../../src/lib/js/app/shared/media/mediaFactory.js";
+import SnapshotComponent from "../../../../src/lib/js/app/mainView/collection/base/components/snapshotComponent.js";
 
 const Ui = {
     render: async (container) => {
@@ -56,7 +58,7 @@ const Ui = {
 
         const list = document.querySelector(`#media-${random}`)
 
-       medias.map(media => {
+        medias.map(media => {
             console.log('FSLOG media', media)
             Ui.thumbnail(list, media);
             //const url = new BaseMedia(media.data).getThumbnail();
@@ -71,7 +73,16 @@ const Ui = {
         const thumb = await new BaseMedia(media.data).getThumbnail();
 
         Ui.inject(list, TP_list.item.render(media, thumb), 'beforeend');
-        console.log('FSLOG build', thumb)
+        console.log('FSLOG build', media.uuid)
+
+        const button = document.querySelector(`.media-completed[data-uuid="${media.uuid}"]`);
+        button.addEventListener('click', async () => {
+            const editor = await MediaFactory.createPreviewComponent(media)
+            
+            const snap = new SnapshotComponent(editor);
+
+            console.log('FSLOG editor', editor)
+        })
 
     }
 }
