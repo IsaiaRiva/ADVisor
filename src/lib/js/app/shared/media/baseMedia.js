@@ -228,6 +228,7 @@ export default class BaseMedia extends mxReadable(class {}) {
   }
 
   async getImageUrl(uuid, bucket, key) {
+
     let url = await this.store.getImageURL(
       uuid,
       bucket,
@@ -242,7 +243,8 @@ export default class BaseMedia extends mxReadable(class {}) {
         key
       );
     }
-
+    console.log('AMZN baseMedia.js row 246', url)
+    
     return url;
   }
 

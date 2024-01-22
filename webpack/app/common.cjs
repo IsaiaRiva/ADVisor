@@ -8,7 +8,7 @@ const common = require("../common.cjs");
 module.exports = merge(common, {
     name: "app",
     entry: {
-        main: "./fnc/assets/js/app.js",
+        main: "./fnc/assets/js/app.js",//./src/lib/js/app.js
     },
     output: {
         filename: "./fnc/assets/js/[name].[contenthash].js",
