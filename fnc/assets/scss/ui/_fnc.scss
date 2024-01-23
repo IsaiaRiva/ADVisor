@@ -1,0 +1,76 @@
+@use '../utility/mixins' as mixin;
+
+.fnc {
+  &-input {
+    $input-br: .3rem;
+    $input-padding: 1rem;
+
+    &-def {
+      color: var(--c-itachi);
+      background-color: var(--c-sasuke);
+      -webkit-box-shadow: 0px 0px 1px 1px var(--c-obito);
+      box-shadow: 0px 0px 1px 1px var(--c-obito);
+      border: 1px solid var(--c-obito);
+      @include mixin.radius($input-br);
+      padding: $input-padding;
+      width: 100%;
+
+      &::placeholder {
+        font-style: italic;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: 1px solid var(--c-itachi);
+        outline-offset: 2px;
+      }
+
+      &:user-invalid {
+        border-color: var(--c-deidara);
+      }
+
+      &:user-valid {
+        border-color: var(--c-gai);
+      }
+    }
+  }
+
+  &-btn {
+
+    $btn-p: 1rem;
+
+    &-naked {
+      color: var(--c-itachi);
+      font-style: italic;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+
+      &:focus,
+      &:focus-visible,
+      &:hover {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid var(--c-itachi);
+      }
+    }
+
+    &-def {
+      color: var(--c-itachi);
+      cursor: pointer;
+      padding-block: $btn-p;
+      padding-inline: calc($btn-p * 1.5);
+      background-color: var(--c-sasuke);
+      -webkit-box-shadow: 0px 0px 1px 1px var(--c-obito);
+      box-shadow: 0px 0px 1px 1px var(--c-obito);
+      border: 1px solid var(--c-obito);
+      font-weight: bold;
+
+      &:focus,
+      &:focus-visible,
+      &:hover {
+        outline: .5px solid var(--c-itachi) !important;
+      }
+
+    }
+  }
+}
