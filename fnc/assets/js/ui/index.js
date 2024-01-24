@@ -1,6 +1,10 @@
-import TP_container from "./templates/container";
-import TP_menu from "./templates/dashboard/menu.js";
-import TP_list from "./templates/list.js";
+import TP_container from './templates/container';
+import TP_menu from './templates/dashboard/menu.js';
+import TP_list from './templates/list.js';
+import TP_editor from './templates/editor.js';
+import Store from '../editor/store.js';
+import Infos from '../editor/side/infos.js';
+import Filters from '../editor/side/filters.js';
 
 import LOGIN from './templates/login/login-model';
 import DASHBOARD from './templates/dashboard/dashboard-model.js'
@@ -81,15 +85,14 @@ const Ui = {
         const medias = await media.scanRecordsByCategory(type);
         const filtered = medias.filter((x) => x.overallStatus === 'COMPLETED');
 
-        Ui.list(container, random, filtered);
+        Ui.build(container, random, filtered);
     },
-    list: (container, random, medias) => {
+    build: (container, random, medias) => {
         Ui.inject(container, TP_list.container.render(random), 'beforeend');
         const list = document.querySelector(`#media-${random}`)
         Ui.inject(list, TP_list.mediaCompleteList.render(random), 'beforeend');
-        const completeList = document.querySelector(`#media-complete-${random}`)
+        Store.elements.media = document.querySelector(`#media-complete-${random}`)
 
-        Store.elements.media = document.querySelector(`#media-${random}`);
         const valid = medias.map(async media => {
             const response = await Ui.analyze(media);
 
@@ -116,7 +119,7 @@ const Ui = {
 
         Ui.inject(Store.elements.media, TP_list.item.render(media, thumb), 'beforeend');
 
-        const button = document.querySelector(`.media-completed[data-uuid="${media.uuid}"]`);
+        const button = document.querySelector(`.media-container[data-uuid="${media.uuid}"]`);
         
         button.addEventListener('click', async () => {
             const preview = await MediaFactory.createPreviewComponent(media)
