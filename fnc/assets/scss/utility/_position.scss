@@ -4,12 +4,30 @@
   // inset: 0;
 }
 
+.full-page-content-padding {
+  padding: 2rem;
+}
+
 .grid-center {
   display: grid;
   place-content: center;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .d-flex-sb {
   display: flex;
   justify-content: space-between;
+}
+
+.d-flex-vc {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex-dc {
+  display: flex;
+  flex-direction: column;
 }

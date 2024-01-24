@@ -1,6 +1,13 @@
 import TP_container from "./templates/container";
-import TP_menu from "./templates/menu";
+import TP_menu from "./templates/dashboard/menu.js";
 import TP_list from "./templates/list.js";
+import LOGIN from './templates/login/login-model';
+import DASHBOARD from './templates/dashboard/dashboard-model.js'
+import { injectSvg } from '../shared/utility/create-svg.js';
+const {
+	SVG: { MAIN_LOGO, LOGOUT },
+} = LOGIN;
+const { SVG: { MAIN_LOGO_NAV } } = DASHBOARD;
 
 import AppUtils from "../../../../src/lib/js/app/shared/appUtils";
 import {
@@ -27,19 +34,20 @@ const Ui = {
         container.insertAdjacentHTML(position, template);
 
     },
-    main: (container, random) => {
+    main: async (container, random) => {
         Ui.inject(container, TP_container.render(random), 'beforeend');
 
         const main = document.querySelector(`#main-${random}`);
         
-        Ui.menu(main, random);
-
+        await Ui.menu(main, random);
+        injectSvg(MAIN_LOGO.path, MAIN_LOGO_NAV.id);
+        injectSvg(LOGOUT.path, LOGOUT.id);
     
     },
-    menu: (container, random) => {
+    menu: async (container, random) => {
         Ui.inject(container, TP_menu.render(random), 'beforeend');
 
-        Ui.content(container, random);
+        await Ui.content(container, random);
 
     },
     content: async (container, random) => {
@@ -53,12 +61,14 @@ const Ui = {
     },
     build: (container, random, medias) => {
         Ui.inject(container, TP_list.container.render(random), 'beforeend');
-
         const list = document.querySelector(`#media-${random}`)
+        Ui.inject(list, TP_list.mediaCompleteList.render(random), 'beforeend');
+        const completeList = document.querySelector(`#media-complete-${random}`)
+
 
        medias.map(media => {
             console.log('FSLOG media', media)
-            Ui.thumbnail(list, media);
+            Ui.thumbnail(completeList, media);
             //const url = new BaseMedia(media.data).getThumbnail();
 
              

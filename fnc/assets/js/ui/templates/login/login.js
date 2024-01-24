@@ -50,8 +50,8 @@ const TP_login = {
                         </div>
 
                         <div class="login-bottom-wrapper d-flex-sb">
-                            <button class="fnc-btn-naked" type="button">${capitalizeFirstLetter(FORGOT_PWD)}</button>
-                            <button class="fnc-btn-def uppercase" type="submit">${SIGN_IN}</button>
+                            <button class="fnc-btn-naked italic" type="button">${capitalizeFirstLetter(FORGOT_PWD)}</button>
+                            <button class="fnc-btn-def bold uppercase" type="submit">${SIGN_IN}</button>
                         </div>
                     </form>
 
