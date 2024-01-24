@@ -1,16 +1,10 @@
 import "../scss/app.scss";
-
 import Init from "./init.js";
-import Consts from './consts.js';
-
 
 import AppUtils from '../../../src/lib/js/app/shared/appUtils.js';
 import {
 	GetLocalStoreDB,
 } from '../../../src/lib/js/app/shared/localCache/index.js';
-import MainView from '../../../src/lib/js/app/mainView.js';
-
-
 
 const ID_DEMOAPP = '#demo-app';
 

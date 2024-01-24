@@ -11,7 +11,6 @@ const Init = {
 
             await Auth.render(container);
             
-            console.log('FSLOG selector END AWAIT', )
 	
             
                     

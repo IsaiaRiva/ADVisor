@@ -1,5 +1,8 @@
+const Timeline = {
 
+}
 
+export default Timeline;
 
 //init plugin
 const VF = VideoFrame({
