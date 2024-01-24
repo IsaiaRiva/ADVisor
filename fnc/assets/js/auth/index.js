@@ -58,32 +58,22 @@ const _tmpFlowData = {};
 
 const Auth = {
 	render: async container => {
-		await Auth.hide(container);
-
 		let username;
 		try {
 			const userSession = await FN_cached_user(LoadUserSessionFromCache);
 
 			username = (userSession || {}).username;
-
-			if (username !== undefined) {
-				console.log('FSLOG username defined');
-
-				//return container.dispatchEvent(ON_SIGNIN_VIEW_HIDDEN);
-
-				//return container.dispatchEvent(ON_SIGNIN_VIEW_HIDDEN);
-			}
 		} catch (e) {
 			/* do nothing */
-		} finally {
-			if (username === undefined) {
-				const store = GetSettingStore();
-				username = await store.getItem(OPT_USERNAME);
-			}
 		}
 
-		Auth.inject(container);
-		Auth.forms(container);
+		if (!username) {
+			Auth.inject(container);
+			Auth.forms(container);
+			return;
+		}
+
+		await Ui.render(container);
 	},
 	hide: async container => {
 		container.innerHTML = 'Content deleted';
@@ -134,7 +124,7 @@ const Auth = {
 					if (response instanceof UserSession) {
 						await FN_user(GetUserSession, GetIotSubscriber);
 						TP_login.hide(RANDOM_ID);
-						Ui.render(container);
+						await Ui.render(container);
 						return true;
 					}
 

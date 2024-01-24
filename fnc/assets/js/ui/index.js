@@ -1,10 +1,18 @@
 import TP_container from './templates/container';
-import TP_menu from './templates/menu';
+import TP_menu from './templates/dashboard/menu.js';
 import TP_list from './templates/list.js';
 import TP_editor from './templates/editor.js';
+import Store from '../editor/store.js';
 import Infos from '../editor/side/infos.js';
 import Filters from '../editor/side/filters.js';
-import Store from '../editor/store.js';
+
+import LOGIN from './templates/login/login-model';
+import DASHBOARD from './templates/dashboard/dashboard-model.js'
+import { injectSvg } from '../shared/utility/create-svg.js';
+const {
+	SVG: { MAIN_LOGO, LOGOUT },
+} = LOGIN;
+const { SVG: { MAIN_LOGO_NAV } } = DASHBOARD;
 
 import ApiHelper from '../../../../src/lib/js/app/shared/apiHelper.js';
 import { GetS3Utils } from '../../../../src/lib/js/app/shared/s3utils.js';
@@ -55,16 +63,21 @@ const Ui = {
         //positions: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
         container.insertAdjacentHTML(position, template);
     },
-    main: (container, random) => {
+    main: async (container, random) => {
         Ui.inject(container, TP_container.render(random), 'beforeend');
 
         const main = document.querySelector(`#main-${random}`);
         
-        Ui.menu(main, random);    
+        await Ui.menu(main, random);
+        injectSvg(MAIN_LOGO.path, MAIN_LOGO_NAV.id);
+        injectSvg(LOGOUT.path, LOGOUT.id);
+    
     },
-    menu: (container, random) => {
+    menu: async (container, random) => {
         Ui.inject(container, TP_menu.render(random), 'beforeend');
-        Ui.content(container, random);
+
+        await Ui.content(container, random);
+
     },
     content: async (container, random) => {
         const type = 'video';
@@ -72,12 +85,13 @@ const Ui = {
         const medias = await media.scanRecordsByCategory(type);
         const filtered = medias.filter((x) => x.overallStatus === 'COMPLETED');
 
-        Ui.list(container, random, filtered);
+        Ui.build(container, random, filtered);
     },
-    list: (container, random, medias) => {
+    build: (container, random, medias) => {
         Ui.inject(container, TP_list.container.render(random), 'beforeend');
-
-        Store.elements.media = document.querySelector(`#media-${random}`);
+        const list = document.querySelector(`#media-${random}`)
+        Ui.inject(list, TP_list.mediaCompleteList.render(random), 'beforeend');
+        Store.elements.media = document.querySelector(`#media-complete-${random}`)
 
         const valid = medias.map(async media => {
             const response = await Ui.analyze(media);
@@ -105,7 +119,7 @@ const Ui = {
 
         Ui.inject(Store.elements.media, TP_list.item.render(media, thumb), 'beforeend');
 
-        const button = document.querySelector(`.media-completed[data-uuid="${media.uuid}"]`);
+        const button = document.querySelector(`.media-container[data-uuid="${media.uuid}"]`);
         
         button.addEventListener('click', async () => {
             const preview = await MediaFactory.createPreviewComponent(media)

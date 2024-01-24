@@ -1,50 +1,43 @@
+import DASHBOARD from './dashboard/dashboard-model';
+
+const { REMOVE_BTN } = DASHBOARD;
+
+
 const TP_list = {
     container: {
         render: (random) => {
-            const html = `<div id="media-${random}"></div>`;
+            const html = `<div id="media-${random}" class="full-page-content-padding"></div>`;
+            return html;
+        }
+    },
+    mediaCompleteList: {
+        render: (random) => {
+            const html = `<div id="media-complete-${random}" class="d-flex"></div>`;
             return html;
         }
     },
     item: {
         render: (media, url) => {
             const html = `
-            <div class="col-3 media-completed" data-uuid="${media.uuid}" data-status="${media.overallstatus}">
-                <img class="w-100" alt="${media.basename}"
-                src="${url}"
-                style="aspect-ratio: 16 / 9; object-fit: cover;">
-                <div class="card-img-overlay category p-2">
-                    <div class="row no-gutters h-100">
-                        <div class="col-6 p-0 m-0">
-                            <h5 class="lead-s m-0 text-white text-contain">
-                                ${media.basename}
-                            </h5>
-                        </div>
-                        <div class="col-6 p-0 m-0">
-                            <div class="p-0 m-0 d-flex justify-content-end">
-                                <span class="lead-xs px-2 text-white text-right bg-dark">${media.readableDuration}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 align-self-end d-flex">
-                            <div class="col-6 p-0 m-0 mt-auto">
-                                <button class="btn btn-sm btn-outline-danger lead-sm media-action"
-                                    data-toggle="tooltip" data-placement="bottom" title=""
-                                    data-original-title="Remove media from collection">
-                                    <i class="far fa-trash-alt"></i>
-                                </button>
-                            </div>
-                            <div class="col-6 p-0 m-0 ml-auto text-right">
-                                <button class="btn btn-link media-action">
-                                    <i class="far fa-play-circle icon-4"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="media-container" data-uuid="${media.uuid}" data-status="${media.overallStatus}">
+                <img class="media-img" alt="${media.basename}" src="${url}">
+                <div class="media-detail-wrapper d-flex-dc">
+                 <h6 class="media-detail-title">${media.basename}</h6>
+                 <section class="media-detail-bottom-section d-flex-sb">
+                    <p class="media-detail-duration">${media.readableDuration}</p>
+                    <button class="fnc-btn-nav">
+                        <svg width="2rem" height="2rem" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"/></svg>
+                        <span class="capitalize">${REMOVE_BTN}</span>
+                    </button>
+                 </section>
                 </div>
-            </div>`;
+            </div>
+
+          `;
 
             return html;
         }
     }
 }
 
-export default TP_list
+export default TP_list;

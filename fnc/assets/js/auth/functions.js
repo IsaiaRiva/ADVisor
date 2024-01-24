@@ -6,7 +6,7 @@ const Functions = {
           return session;
         }
     
-        return Functions.userSignIn();
+        return session;
     },
     userSignIn: async (FN1, FN2) => {
         const session = FN1();

@@ -5,7 +5,7 @@ const Infos = {
         const back = side.querySelector('#back');
 
             back.addEventListener('click', event => {
-                Store.elements.media.style.display = 'block';
+                Store.elements.media.style.display = 'flex';
                 Store.elements.editor.remove();
             });
     },

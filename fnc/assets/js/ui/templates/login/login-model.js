@@ -2,6 +2,7 @@ import  C  from '../../../shared/models/general';
 
 const LOGIN = {
 	SIGN_IN: 'sign in',
+	SIGN_OUT: 'logout',
 	USER: 'username',
 	PWD: 'password',
 	FORGOT_PWD: 'forgot password ?',
@@ -17,6 +18,10 @@ const LOGIN = {
     HIDE_PWD: {
       path: `${C.ICON.BASE_PATH}hide-eye.svg`,
       id: 'hide-pwd-icon'
+    },
+    LOGOUT: {
+      path: `${C.ICON.BASE_PATH}power.svg`,
+      id: 'logout-svg'
     },
   },
   CSS: {

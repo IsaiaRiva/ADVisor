@@ -1,6 +1,7 @@
 const TP_container = {
     render: (random) => {
-        const html = `<div id="main-${random}"></div>`;
+        const html = `<div id="main-${random}" class="full-page">
+        </div>`;
         return html;
     }
 }
