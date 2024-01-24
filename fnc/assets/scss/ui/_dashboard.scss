@@ -1,0 +1,128 @@
+@use '../utility/mixins' as mixin;
+
+.fnc-nav {
+  $logo-w: 10rem;
+  $nav-p: 1.2rem;
+  $item-p: .5rem;
+  $svg-d: 1.2rem;
+  $divider: .3rem;
+
+  background-color: var(--c-orochimaru);
+  padding: $nav-p;
+
+  &-logo {
+    width: $logo-w;
+  }
+
+  &-list {
+    margin: auto;
+    list-style-type: none;
+    align-items: center;
+
+    &-item {
+      padding: $item-p;
+    }
+
+    &-link {
+      color: var(--c-sakura);
+
+      &:focus,
+      &:focus-visible,
+      &:hover {
+        text-decoration: none;
+        color: var(--c-sakura);
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid var(--c-sakura);
+        cursor: pointer;
+      }
+
+      &:visited {
+        opacity: .5;
+      }
+    }
+  }
+
+  .logout-svg-wrapper {
+    svg {
+      width: $svg-d;
+      height: $svg-d;
+      margin-right: $divider;
+      margin-bottom: calc($divider - 0.1rem);
+
+      path {
+        fill: var(--c-itachi);
+      }
+    }
+  }
+
+  .logout-btn {
+    height: fit-content;
+    margin-block: auto;
+    padding: $divider;
+  }
+}
+
+div[id^=media-] {
+  $container-br: .5rem;
+  $item-m: 1rem;
+
+  div[id^=media-complete-] {
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--c-madara);
+
+    .media {
+      &-container {
+        background-color: var(--c-madara);
+        border: 2px solid var(--c-orochimaru);
+        @include mixin.radius($container-br);
+        color: var(--c-itachi);
+        display: grid;
+        grid-template-columns: .4fr .6fr;
+        cursor: pointer;
+        max-width: clamp(30rem, 25vw, 35rem);
+        min-height: clamp(5rem, 10vh, 10rem);
+        margin: $item-m;
+        overflow: hidden;
+      }
+
+      &-img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin: auto;
+      }
+
+      &-detail-wrapper {
+        overflow: hidden;
+        padding: .7rem;
+      }
+
+      &-detail-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: auto;
+      }
+
+      &-detail-bottom-section {
+        margin-top: auto;
+        $svg-d: 1.5rem;
+
+        svg {
+          width: $svg-d;
+          height: $svg-d;
+
+          path {
+            fill: var(--c-itachi);
+          }
+        }
+      }
+
+      &-detail-duration {
+        margin: 0;
+      }
+
+    }
+  }
+}
