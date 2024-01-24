@@ -509,7 +509,7 @@ a.member-anchor:hover {
   100% { -o-origin-transform: translate(0px); }
 }
 
-.form-signin {
+/* .form-signin {
   width: 100%;
   max-width: 330px;
   padding: 15px;
@@ -548,7 +548,7 @@ a.member-anchor:hover {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
+} */
 
 .up-slide {
   display: flex!important;  

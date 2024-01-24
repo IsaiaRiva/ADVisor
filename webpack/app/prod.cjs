@@ -6,6 +6,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = merge(
     {
         mode: "production",
+        performance: {
+            hints: false,
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000
+        },
         plugins: [
             new CleanWebpackPlugin(),
             new webpack.ids.HashedModuleIdsPlugin({
@@ -15,7 +20,7 @@ module.exports = merge(
                 hashDigestLength: 20,
             }),
             new webpack.SourceMapDevToolPlugin({
-                filename: "[name].js.map",
+                filename: "[file].map",
             }),
         ],
         optimization: {
