@@ -420,6 +420,7 @@ class UserSession {
   fromCredentials() {
     return new Promise((resolve) => {
       const creds = this.credentials;
+      if(!creds) return;
       resolve({
         accessKeyId: creds.AccessKeyId,
         secretAccessKey: creds.SecretKey,

@@ -49,7 +49,7 @@ $shadow-main: 0 .125rem .25rem rgba(36, 38, 40, .075) !important;
 
 // Spacers
 $grid-gutter-width: 30px;
-$grid-gutter-half-width: $grid-gutter-width / 2;
+$grid-gutter-half-width: calc($grid-gutter-width / 2);
 
 // Others
 $header-height: 74px;

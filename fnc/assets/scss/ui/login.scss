@@ -1,0 +1,83 @@
+@use '../utility/mixins' as mixin;
+
+$box-width: clamp(40rem, 40vw, 50rem);
+$box-br: 1rem;
+$box-padding: 5rem;
+
+$separator-mb: .8rem;
+$bottom-wrapper-mt: 2rem;
+
+$svg-icon-d: 2.2rem;
+
+.form-signin:invalid {
+  button[type="submit"] {
+    pointer-events: none;
+    opacity: .5;
+  }
+}
+
+
+.login {
+  &-container {
+    background-color: var(--c-madara);
+    width: $box-width;
+    border: 2px solid var(--c-orochimaru);
+    @include mixin.radius($box-br);
+    padding: $box-padding;
+  }
+
+  &-logo-wrapper {
+    $logo-mb: 2rem;
+    // position: relative;
+    margin-bottom: $logo-mb;
+
+    svg {
+      width: 50%;
+    }
+  }
+
+  &-pwd-input-wrapper {
+    position: relative;
+
+    .show-pwd-icon-wrapper,
+    .hide-pwd-icon-wrapper {
+      svg {
+        width: $svg-icon-d;
+        height: $svg-icon-d;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-30%, -50%);
+        cursor: pointer;
+
+        path,
+        circle {
+          stroke: var(--c-itachi);
+        }
+      }
+
+    }
+
+    .hide-pwd-icon-wrapper svg path {
+      fill: var(--c-itachi);
+    }
+
+    & input[type="text"]~.show-pwd-icon-wrapper,
+    & input[type="password"]~.hide-pwd-icon-wrapper {
+      display: none;
+    }
+
+    & input[type="password"]~.show-pwd-icon-wrapper,
+    & input[type="text"]~.hide-pwd-icon-wrapper {
+      display: block;
+    }
+  }
+
+  &-bottom-wrapper {
+    margin-top: $bottom-wrapper-mt;
+  }
+}
+
+.input-separator {
+  margin-bottom: $separator-mb;
+}
