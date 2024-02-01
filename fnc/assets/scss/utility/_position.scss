@@ -17,8 +17,16 @@
   display: flex;
 }
 
+.v-center {
+  align-items: center;
+}
+
 .d-flex-sb {
   display: flex;
+  justify-content: space-between;
+}
+
+.space-between {
   justify-content: space-between;
 }
 

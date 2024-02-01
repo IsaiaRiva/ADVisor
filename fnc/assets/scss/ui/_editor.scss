@@ -1,0 +1,108 @@
+@use '../utility/mixins' as mixin;
+
+%label {
+  font-weight: bold;
+  padding-block: .5rem;
+  opacity: .9;
+  font-size: .8rem;
+}
+
+
+div[id^=editor-] {
+  $separator: 1rem;
+  $svg-d: 1.5rem;
+  $p: 1rem;
+
+  color: var(--c-itachi);
+  padding: .5rem;
+  overflow: hidden;
+
+  .side {
+    padding: $p;
+    overflow-x: auto;
+  }
+  div[id^=info-] {
+
+    .header {
+      padding-bottom: $separator;
+    }
+
+
+    .title {
+      overflow: hidden;
+      display: inline-block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-inline: .5rem;
+    }
+
+    #back svg,
+    .nav svg {
+      cursor: pointer;
+      min-width: $svg-d;
+      min-height: $svg-d;
+      max-width: $svg-d + .5rem;
+      max-height: $svg-d + .5rem;
+
+      &.d-arrow-left {
+        margin-right: .5rem;
+      }
+
+      path {
+        fill: var(--c-itachi);
+      }
+
+    }
+
+    .nav svg {
+      border: 1px solid var(--c-itachi);
+      @include mixin.radius(.5rem);
+      padding: .2rem;
+    }
+  }
+
+  div[id^=manage-] {
+    margin-top: $separator;
+    text-transform: uppercase;
+
+    .title {
+      padding-bottom: $separator;
+    }
+
+    .filters {
+      padding-block: $separator;
+
+      li.row {
+        padding-bottom: $separator;
+
+        label {
+          @extend %label;
+        }
+      }
+    }
+
+    .rank {
+      padding-block: $separator;
+      display: grid;
+      grid-template-columns: .1fr .3fr .3fr .3fr;
+    }
+
+  }
+
+  div[id^=list-] {
+    text-transform: uppercase;
+
+    .title {
+      padding-top: $separator * 3;
+      padding-bottom: $separator;
+    }
+
+    .body {
+      padding-block: $separator
+    }
+
+    label {
+      @extend %label;
+    }
+  }
+}

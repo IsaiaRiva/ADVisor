@@ -48,7 +48,6 @@
       width: $svg-d;
       height: $svg-d;
       margin-right: $divider;
-      margin-bottom: calc($divider - 0.1rem);
 
       path {
         fill: var(--c-itachi);
@@ -69,7 +68,6 @@ div[id^=media-] {
 
   div[id^=media-complete-] {
     flex-wrap: wrap;
-    border-bottom: 2px solid var(--c-madara);
 
     .media {
       &-container {
@@ -81,7 +79,7 @@ div[id^=media-] {
         grid-template-columns: .4fr .6fr;
         cursor: pointer;
         max-width: clamp(30rem, 25vw, 35rem);
-        min-height: clamp(5rem, 10vh, 10rem);
+        // min-height: clamp(5rem, 10vh, 10rem);
         margin: $item-m;
         overflow: hidden;
       }
@@ -89,6 +87,7 @@ div[id^=media-] {
       &-img {
         aspect-ratio: 16 / 9;
         object-fit: cover;
+        object-position: center;
         margin: auto;
       }
 
@@ -112,6 +111,7 @@ div[id^=media-] {
         svg {
           width: $svg-d;
           height: $svg-d;
+          margin-right: .3rem;
 
           path {
             fill: var(--c-itachi);
